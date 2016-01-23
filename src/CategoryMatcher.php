@@ -9,7 +9,9 @@ class CategoryMatcher
         $this->categories = [
             new \Categories\Chance(),
             new \Categories\SmallStraight(),
-            new \Categories\LargeStraight()
+            new \Categories\LargeStraight(),
+            new \Categories\ThreeOfAKind(),
+            new \Categories\FourOfAKind()
         ];
     }
 

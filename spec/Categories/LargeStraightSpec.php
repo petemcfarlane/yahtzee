@@ -29,4 +29,9 @@ class LargeStraightSpec extends ObjectBehavior
     {
         $this->score($diceThrow)->shouldReturn(40);
     }
+
+    function it_should_be_called_large_straight()
+    {
+        $this->name()->shouldReturn("Large Straight");
+    }
 }

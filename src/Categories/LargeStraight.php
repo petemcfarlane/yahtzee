@@ -19,7 +19,7 @@ class LargeStraight implements \Category
 
     public function name()
     {
-        return "Small Straight";
+        return "Large Straight";
     }
 
     public function isInOrder(array $values)

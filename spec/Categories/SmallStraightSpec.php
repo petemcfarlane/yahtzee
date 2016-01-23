@@ -29,4 +29,10 @@ class SmallStraightSpec extends ObjectBehavior
     {
         $this->score($diceThrow)->shouldReturn(30);
     }
+
+    function it_should_be_called_small_straight()
+    {
+        $this->name()->shouldReturn("Small Straight");
+    }
+
 }
