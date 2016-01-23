@@ -11,7 +11,8 @@ class CategoryMatcher
             new \Categories\SmallStraight(),
             new \Categories\LargeStraight(),
             new \Categories\ThreeOfAKind(),
-            new \Categories\FourOfAKind()
+            new \Categories\FourOfAKind(),
+            new \Categories\FullHouse()
         ];
     }
 
