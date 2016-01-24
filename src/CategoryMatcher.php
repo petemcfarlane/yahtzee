@@ -12,7 +12,8 @@ class CategoryMatcher
             new \Categories\LargeStraight(),
             new \Categories\ThreeOfAKind(),
             new \Categories\FourOfAKind(),
-            new \Categories\FullHouse()
+            new \Categories\FullHouse(),
+            new \Categories\Yahtzee()
         ];
     }
 
