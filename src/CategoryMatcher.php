@@ -13,7 +13,13 @@ class CategoryMatcher
             new \Categories\ThreeOfAKind(),
             new \Categories\FourOfAKind(),
             new \Categories\FullHouse(),
-            new \Categories\Yahtzee()
+            new \Categories\Yahtzee(),
+            new \Categories\Ones(),
+            new \Categories\Twos(),
+            new \Categories\Threes(),
+            new \Categories\Fours(),
+            new \Categories\Fives(),
+            new \Categories\Sixes()
         ];
     }
 
