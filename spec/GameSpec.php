@@ -13,14 +13,8 @@ class GameSpec extends ObjectBehavior
         $this->scoreboard()->shouldBeAnInstanceOf(Scoreboard::class);
     }
 
-    function it_should_have_a_list_of_available_categories()
-    {
-        $this->availableCategories()->shouldBeArray();
-    }
-
     function it_should_be_able_to_play_a_round()
     {
         $this->play();
     }
-
 }

@@ -34,11 +34,6 @@ class Game
         return $this->scoreboard;
     }
 
-    public function availableCategories()
-    {
-        return $this->availableCategories;
-    }
-
     public function play()
     {
         $this->scoreboard()->play(new Round($this->categoryMatcher));
