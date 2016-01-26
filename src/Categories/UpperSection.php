@@ -4,16 +4,16 @@ namespace Categories;
 
 
 use Category;
-use DiceThrow;
+use DiceRoll;
 
 abstract class UpperSection implements Category
 {
-    public function evaluate(DiceThrow $diceThrow)
+    public function evaluate(DiceRoll $diceThrow)
     {
         return true;
     }
 
-    public function score(DiceThrow $diceThrow)
+    public function score(DiceRoll $diceThrow)
     {
         return array_sum(array_filter($diceThrow->values(), function ($value) {
             return $value === $this->number();

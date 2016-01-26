@@ -2,7 +2,7 @@
 
 namespace spec\Categories;
 
-use DiceThrow;
+use DiceRoll;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -18,18 +18,18 @@ class YahtzeeSpec extends ObjectBehavior
         $this->name()->shouldBe('Yahtzee');
     }
 
-    function it_should_score_50_points(DiceThrow $diceThrow)
+    function it_should_score_50_points(DiceRoll $diceThrow)
     {
         $this->score($diceThrow)->shouldBe(50);
     }
 
-    function it_should_evaluate_as_true_if_all_5_die_are_of_the_same_number(DiceThrow $diceThrow)
+    function it_should_evaluate_as_true_if_all_5_die_are_of_the_same_number(DiceRoll $diceThrow)
     {
         $diceThrow->values()->willReturn([5, 5, 5, 5, 5]);
         $this->evaluate($diceThrow)->shouldBe(true);
     }
 
-    function it_should_evaluate_false_otherwise(DiceThrow $diceThrow)
+    function it_should_evaluate_false_otherwise(DiceRoll $diceThrow)
     {
         $diceThrow->values()->willReturn([3, 3, 3, 3, 6]);
         $this->evaluate($diceThrow)->shouldBe(false);

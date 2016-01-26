@@ -3,7 +3,7 @@
 namespace Categories;
 
 use Category;
-use DiceThrow;
+use DiceRoll;
 
 class SmallStraight implements Category
 {
@@ -12,7 +12,7 @@ class SmallStraight implements Category
         return "Small Straight";
     }
 
-    public function evaluate(DiceThrow $diceThrow)
+    public function evaluate(DiceRoll $diceThrow)
     {
         $values = $diceThrow->values();
         $permutations = [
@@ -33,7 +33,7 @@ class SmallStraight implements Category
 
     }
 
-    public function score(DiceThrow $diceThrow)
+    public function score(DiceRoll $diceThrow)
     {
         return 30;
     }

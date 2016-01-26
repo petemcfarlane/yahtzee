@@ -3,11 +3,11 @@
 namespace Categories;
 
 use Category;
-use DiceThrow;
+use DiceRoll;
 
 class ThreeOfAKind implements Category
 {
-    public function evaluate(DiceThrow $diceThrow)
+    public function evaluate(DiceRoll $diceThrow)
     {
         $groupedValues = [];
         foreach($diceThrow->values() as $value) {
@@ -22,7 +22,7 @@ class ThreeOfAKind implements Category
         }));
     }
 
-    public function score(DiceThrow $diceThrow)
+    public function score(DiceRoll $diceThrow)
     {
         return array_sum($diceThrow->values());
     }

@@ -3,11 +3,11 @@
 namespace Categories;
 
 use Category;
-use DiceThrow;
+use DiceRoll;
 
 class Yahtzee implements Category
 {
-    public function evaluate(DiceThrow $diceThrow)
+    public function evaluate(DiceRoll $diceThrow)
     {
         $values = $diceThrow->values();
         $initialValue = array_shift($values);
@@ -19,7 +19,7 @@ class Yahtzee implements Category
         return true;
     }
 
-    public function score(DiceThrow $diceThrow)
+    public function score(DiceRoll $diceThrow)
     {
         return 50;
     }

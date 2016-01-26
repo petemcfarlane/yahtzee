@@ -2,17 +2,16 @@
 
 namespace Categories;
 
-use DiceThrow;
-use DieValue;
+use DiceRoll;
 
 class LargeStraight implements \Category
 {
-    public function evaluate(DiceThrow $diceThrow)
+    public function evaluate(DiceRoll $diceThrow)
     {
         return $this->isInOrder($diceThrow->values());
     }
 
-    public function score(DiceThrow $diceThrow)
+    public function score(DiceRoll $diceThrow)
     {
         return 40;
     }

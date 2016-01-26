@@ -1,32 +1,48 @@
 <?php
 
+use Categories\NullCategory;
+
 class CategoryMatcher
 {
-    private $categories;
+    private $categories = [];
 
-    public function __construct()
+    public function __construct(Category ...$categories)
     {
-        $this->categories = [
-            new \Categories\Chance(),
-            new \Categories\SmallStraight(),
-            new \Categories\LargeStraight(),
-            new \Categories\ThreeOfAKind(),
-            new \Categories\FourOfAKind(),
-            new \Categories\FullHouse(),
-            new \Categories\Yahtzee(),
-            new \Categories\Ones(),
-            new \Categories\Twos(),
-            new \Categories\Threes(),
-            new \Categories\Fours(),
-            new \Categories\Fives(),
-            new \Categories\Sixes()
-        ];
+        $this->categories = $categories;
     }
 
-    public function match(DiceThrow $diceThrow)
+    public function availableCategories()
     {
-        return array_filter($this->categories, function (Category $category) use ($diceThrow) {
-            return $category->evaluate($diceThrow);
+        return $this->categories;
+    }
+
+    public function best(DiceRoll $diceRoll)
+    {
+        $matching = $this->match($diceRoll);
+        if (empty($matching)) {
+            return new NullCategory();
+        }
+        $ranked = (new CategoryRanker())->rank($diceRoll, ...$matching);
+        $best = array_shift($ranked);
+        // danger: side effect!!
+        $this->removeBestCategoryFromAvailableCategories($best);
+        return $best;
+    }
+
+    private function match(DiceRoll $diceRoll)
+    {
+        return array_filter($this->categories, function (Category $category) use ($diceRoll) {
+            return $category->evaluate($diceRoll);
         });
+    }
+
+    /**
+     * @param Category $best
+     */
+    private function removeBestCategoryFromAvailableCategories(Category $best)
+    {
+        $this->categories = array_values(array_filter($this->categories, function ($category) use ($best) {
+            return spl_object_hash($category) !== spl_object_hash($best);
+        }));
     }
 }

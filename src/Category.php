@@ -2,7 +2,7 @@
 
 interface Category
 {
-    public function evaluate(DiceThrow $diceThrow);
-    public function score(DiceThrow $diceThrow);
+    public function evaluate(DiceRoll $diceRoll);
+    public function score(DiceRoll $diceRoll);
     public function name();
 }

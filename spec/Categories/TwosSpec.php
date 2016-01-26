@@ -2,7 +2,7 @@
 
 namespace spec\Categories;
 
-use DiceThrow;
+use DiceRoll;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -18,12 +18,12 @@ class TwosSpec extends ObjectBehavior
         $this->name()->shouldBe('Twos');
     }
 
-    function it_should_always_evaluate_true(DiceThrow $diceThrow)
+    function it_should_always_evaluate_true(DiceRoll $diceThrow)
     {
         $this->evaluate($diceThrow)->shouldBe(true);
     }
 
-    function its_score_should_be_the_total_of_all_twos(DiceThrow $diceThrow1, DiceThrow $diceThrow2)
+    function its_score_should_be_the_total_of_all_twos(DiceRoll $diceThrow1, DiceRoll $diceThrow2)
     {
         $diceThrow1->values()->willReturn([2, 4, 5, 1, 6]);
         $this->score($diceThrow1)->shouldBe(2);

@@ -2,7 +2,7 @@
 
 namespace spec\Categories;
 
-use DiceThrow;
+use DiceRoll;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -18,12 +18,12 @@ class OnesSpec extends ObjectBehavior
         $this->name()->shouldBe("Ones");
     }
 
-    function it_should_always_evaluate_as_true(DiceThrow $diceThrow)
+    function it_should_always_evaluate_as_true(DiceRoll $diceThrow)
     {
         $this->evaluate($diceThrow)->shouldBe(true);
     }
 
-    function it_should_total_the_number_of_ones_in_a_throw_as_a_score(DiceThrow $diceThrow1, DiceThrow $diceThrow2)
+    function it_should_total_the_number_of_ones_in_a_throw_as_a_score(DiceRoll $diceThrow1, DiceRoll $diceThrow2)
     {
         $diceThrow1->values()->willReturn([5, 3, 1, 3, 1]);
         $this->score($diceThrow1)->shouldBe(2);

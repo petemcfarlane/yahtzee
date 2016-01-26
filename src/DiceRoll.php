@@ -1,12 +1,12 @@
 <?php
 
-class DiceThrow
+class DiceRoll
 {
-    private $diceValues;
+    private $values;
 
-    public function roll()
+    public function __construct()
     {
-        $this->diceValues = [
+        $this->values = [
             new DieValue(),
             new DieValue(),
             new DieValue(),
@@ -19,6 +19,6 @@ class DiceThrow
     {
         return array_map(function (DieValue $die) {
             return $die->value();
-        }, $this->diceValues);
+        }, $this->values);
     }
 }

@@ -3,11 +3,11 @@
 namespace Categories;
 
 use Category;
-use DiceThrow;
+use DiceRoll;
 
 class FullHouse implements Category
 {
-    public function evaluate(DiceThrow $diceThrow)
+    public function evaluate(DiceRoll $diceThrow)
     {
         $grouped = [];
 
@@ -22,7 +22,7 @@ class FullHouse implements Category
         return count($grouped) === 2;
     }
 
-    public function score(DiceThrow $diceThrow)
+    public function score(DiceRoll $diceThrow)
     {
         return 25;
     }
