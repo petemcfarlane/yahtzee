@@ -2,6 +2,7 @@
 
 use Categories\Category;
 use Categories\NullCategory;
+use Categories\Yahtzee;
 
 class CategoryContainer
 {
@@ -18,7 +19,7 @@ class CategoryContainer
             new \Categories\ThreeOfAKind(),
             new \Categories\FourOfAKind(),
             new \Categories\FullHouse(),
-            new \Categories\Yahtzee(),
+            new Yahtzee(),
             new \Categories\Ones(),
             new \Categories\Twos(),
             new \Categories\Threes(),
@@ -40,6 +41,7 @@ class CategoryContainer
         $best = array_shift($ranked);
         // danger: side effect!!
         $this->removeBestCategoryFromAvailableCategories($best);
+        $this->addYahtzee2CategoryIfBestIsYahtzee($best);
         return $best;
     }
 
@@ -48,5 +50,12 @@ class CategoryContainer
         $this->availableCategories = array_values(array_filter($this->availableCategories, function ($category) use ($best) {
             return spl_object_hash($category) !== spl_object_hash($best);
         }));
+    }
+
+    private function addYahtzee2CategoryIfBestIsYahtzee(Category $best)
+    {
+        if ($best instanceof Yahtzee) {
+            $this->availableCategories[] = new \Categories\Yahtzee2();
+        }
     }
 }
