@@ -17,14 +17,15 @@ class ScoreboardSpec extends ObjectBehavior
     function it_can_play_a_round(Round $round)
     {
         $this->play($round);
+        $this->rounds()->shouldContain($round);
     }
 
     function it_can_only_play_13_rounds(Round $round)
     {
-        for ($i = 0; $i < 13; ++$i)
-        {
+        for ($i = 0; $i < 13; ++$i) {
             $this->play($round);
         }
+
         $this->shouldThrow(CannotPlayMoreThanThirteenRounds::class)->during('play', [$round]);
     }
 
