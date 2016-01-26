@@ -6,27 +6,16 @@ class Game
      * @var Scoreboard
      */
     private $scoreboard;
-    private $availableCategories;
 
-    public function __construct(Scoreboard $scoreboard = null)
+    /**
+     * @var CategoryContainer
+     */
+    private $categoryContainer;
+
+    public function __construct(Scoreboard $scoreboard = null, CategoryContainer $categoryContainer = null)
     {
         $this->scoreboard = $scoreboard ?: new Scoreboard();
-        $this->availableCategories = [
-            new \Categories\Chance(),
-            new \Categories\SmallStraight(),
-            new \Categories\LargeStraight(),
-            new \Categories\ThreeOfAKind(),
-            new \Categories\FourOfAKind(),
-            new \Categories\FullHouse(),
-            new \Categories\Yahtzee(),
-            new \Categories\Ones(),
-            new \Categories\Twos(),
-            new \Categories\Threes(),
-            new \Categories\Fours(),
-            new \Categories\Fives(),
-            new \Categories\Sixes()
-        ];
-        $this->categoryMatcher = new CategoryMatcher(...$this->availableCategories);
+        $this->categoryContainer = $categoryContainer?: new CategoryContainer();
     }
 
     public function scoreboard()
@@ -36,6 +25,6 @@ class Game
 
     public function play()
     {
-        $this->scoreboard()->play(new Round($this->categoryMatcher));
+        $this->scoreboard()->play(new Round($this->categoryContainer));
     }
 }

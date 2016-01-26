@@ -1,5 +1,7 @@
 <?php
 
+use Categories\Category;
+
 class Round
 {
     /**
@@ -15,10 +17,10 @@ class Round
      */
     private $score;
 
-    public function __construct(CategoryMatcher $categoryMatcher, DiceRoll $diceRoll = null)
+    public function __construct(CategoryContainer $categoryContainer, DiceRoll $diceRoll = null)
     {
         $this->diceRoll = $diceRoll ?: new DiceRoll();
-        $this->category = $categoryMatcher->best($this->diceRoll);
+        $this->category = $categoryContainer->best($this->diceRoll);
         $this->score = $this->category->score($this->diceRoll);
     }
 
