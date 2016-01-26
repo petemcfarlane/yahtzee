@@ -19,17 +19,17 @@ class TwosSpec extends ObjectBehavior
         $this->name()->shouldBe('Twos');
     }
 
-    function it_should_always_evaluate_true(DiceRoll $diceThrow)
+    function it_should_always_evaluate_true(DiceRoll $diceRoll)
     {
-        $this->evaluate($diceThrow)->shouldBe(true);
+        $this->evaluate($diceRoll)->shouldBe(true);
     }
 
-    function its_score_should_be_the_total_of_all_twos(DiceRoll $diceThrow1, DiceRoll $diceThrow2)
+    function its_score_should_be_the_total_of_all_twos(DiceRoll $diceRoll1, DiceRoll $diceRoll2)
     {
-        $diceThrow1->values()->willReturn([2, 4, 5, 1, 6]);
-        $this->score($diceThrow1)->shouldBe(2);
+        $diceRoll1->values()->willReturn([2, 4, 5, 1, 6]);
+        $this->score($diceRoll1)->shouldBe(2);
 
-        $diceThrow2->values()->willReturn([2, 4, 2, 2, 2]);
-        $this->score($diceThrow2)->shouldBe(8);
+        $diceRoll2->values()->willReturn([2, 4, 2, 2, 2]);
+        $this->score($diceRoll2)->shouldBe(8);
     }
 }

@@ -19,20 +19,20 @@ class YahtzeeSpec extends ObjectBehavior
         $this->name()->shouldBe('Yahtzee');
     }
 
-    function it_should_score_50_points(DiceRoll $diceThrow)
+    function it_should_score_50_points(DiceRoll $diceRoll)
     {
-        $this->score($diceThrow)->shouldBe(50);
+        $this->score($diceRoll)->shouldBe(50);
     }
 
-    function it_should_evaluate_as_true_if_all_5_die_are_of_the_same_number(DiceRoll $diceThrow)
+    function it_should_evaluate_as_true_if_all_5_die_are_of_the_same_number(DiceRoll $diceRoll)
     {
-        $diceThrow->values()->willReturn([5, 5, 5, 5, 5]);
-        $this->evaluate($diceThrow)->shouldBe(true);
+        $diceRoll->values()->willReturn([5, 5, 5, 5, 5]);
+        $this->evaluate($diceRoll)->shouldBe(true);
     }
 
-    function it_should_evaluate_false_otherwise(DiceRoll $diceThrow)
+    function it_should_evaluate_false_otherwise(DiceRoll $diceRoll)
     {
-        $diceThrow->values()->willReturn([3, 3, 3, 3, 6]);
-        $this->evaluate($diceThrow)->shouldBe(false);
+        $diceRoll->values()->willReturn([3, 3, 3, 3, 6]);
+        $this->evaluate($diceRoll)->shouldBe(false);
     }
 }

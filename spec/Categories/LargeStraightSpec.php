@@ -14,21 +14,21 @@ class LargeStraightSpec extends ObjectBehavior
         $this->shouldHaveType(Category::class);
     }
 
-    function it_evaluates_true_if_all_5_dice_are_in_order(DiceRoll $diceThrow)
+    function it_evaluates_true_if_all_5_dice_are_in_order(DiceRoll $diceRoll)
     {
-        $diceThrow->values()->willReturn([2, 1, 3, 5, 4]);
-        $this->evaluate($diceThrow)->shouldBe(true);
+        $diceRoll->values()->willReturn([2, 1, 3, 5, 4]);
+        $this->evaluate($diceRoll)->shouldBe(true);
     }
 
-    function it_evaluates_false_otherwise(DiceRoll $diceThrow)
+    function it_evaluates_false_otherwise(DiceRoll $diceRoll)
     {
-        $diceThrow->values()->willReturn([2, 2, 4, 5, 6]);
-        $this->evaluate($diceThrow)->shouldBe(false);
+        $diceRoll->values()->willReturn([2, 2, 4, 5, 6]);
+        $this->evaluate($diceRoll)->shouldBe(false);
     }
 
-    function it_should_have_a_score_of_40_points(DiceRoll $diceThrow)
+    function it_should_have_a_score_of_40_points(DiceRoll $diceRoll)
     {
-        $this->score($diceThrow)->shouldReturn(40);
+        $this->score($diceRoll)->shouldReturn(40);
     }
 
     function it_should_be_called_large_straight()

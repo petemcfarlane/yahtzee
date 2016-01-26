@@ -14,21 +14,21 @@ class SmallStraightSpec extends ObjectBehavior
         $this->shouldHaveType(Category::class);
     }
 
-    function it_evaluates_true_if_at_least_4_dice_are_in_a_straight(DiceRoll $diceThrow)
+    function it_evaluates_true_if_at_least_4_dice_are_in_a_straight(DiceRoll $diceRoll)
     {
-        $diceThrow->values()->willReturn([2, 5, 3, 5, 4]);
-        $this->evaluate($diceThrow)->shouldBe(true);
+        $diceRoll->values()->willReturn([2, 5, 3, 5, 4]);
+        $this->evaluate($diceRoll)->shouldBe(true);
     }
 
-    function it_evaluates_false_otherwise(DiceRoll $diceThrow)
+    function it_evaluates_false_otherwise(DiceRoll $diceRoll)
     {
-        $diceThrow->values()->willReturn([1, 2, 2, 6, 6]);
-        $this->evaluate($diceThrow)->shouldBe(false);
+        $diceRoll->values()->willReturn([1, 2, 2, 6, 6]);
+        $this->evaluate($diceRoll)->shouldBe(false);
     }
 
-    function it_should_have_a_score_of_30_points(DiceRoll $diceThrow)
+    function it_should_have_a_score_of_30_points(DiceRoll $diceRoll)
     {
-        $this->score($diceThrow)->shouldReturn(30);
+        $this->score($diceRoll)->shouldReturn(30);
     }
 
     function it_should_be_called_small_straight()

@@ -19,17 +19,17 @@ class OnesSpec extends ObjectBehavior
         $this->name()->shouldBe("Ones");
     }
 
-    function it_should_always_evaluate_as_true(DiceRoll $diceThrow)
+    function it_should_always_evaluate_as_true(DiceRoll $diceRoll)
     {
-        $this->evaluate($diceThrow)->shouldBe(true);
+        $this->evaluate($diceRoll)->shouldBe(true);
     }
 
-    function it_should_total_the_number_of_ones_in_a_throw_as_a_score(DiceRoll $diceThrow1, DiceRoll $diceThrow2)
+    function it_should_total_the_number_of_ones_in_a_throw_as_a_score(DiceRoll $diceRoll1, DiceRoll $diceRoll2)
     {
-        $diceThrow1->values()->willReturn([5, 3, 1, 3, 1]);
-        $this->score($diceThrow1)->shouldBe(2);
+        $diceRoll1->values()->willReturn([5, 3, 1, 3, 1]);
+        $this->score($diceRoll1)->shouldBe(2);
 
-        $diceThrow2->values()->willReturn([1, 1, 1, 3, 1]);
-        $this->score($diceThrow2)->shouldBe(4);
+        $diceRoll2->values()->willReturn([1, 1, 1, 3, 1]);
+        $this->score($diceRoll2)->shouldBe(4);
     }
 }
