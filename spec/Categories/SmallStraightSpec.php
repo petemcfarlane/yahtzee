@@ -2,6 +2,7 @@
 
 namespace spec\Categories;
 
+use Categories\Category;
 use DiceRoll;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -10,7 +11,7 @@ class SmallStraightSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Category');
+        $this->shouldHaveType(Category::class);
     }
 
     function it_evaluates_true_if_at_least_4_dice_are_in_a_straight(DiceRoll $diceThrow)

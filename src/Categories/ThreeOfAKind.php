@@ -2,7 +2,6 @@
 
 namespace Categories;
 
-use Category;
 use DiceRoll;
 
 class ThreeOfAKind implements Category

@@ -2,12 +2,18 @@
 
 namespace spec\Categories;
 
+use Categories\Category;
 use DiceRoll;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class ChanceSpec extends ObjectBehavior
 {
+    function it_is_initializable()
+    {
+        $this->shouldHaveType(Category::class);
+    }
+
     function it_should_always_be_able_to_evaluate(DiceRoll $diceThrow)
     {
         $this->evaluate($diceThrow)->shouldBe(true);

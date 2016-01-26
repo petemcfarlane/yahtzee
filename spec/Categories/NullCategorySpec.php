@@ -2,6 +2,7 @@
 
 namespace spec\Categories;
 
+use Categories\Category;
 use DiceRoll;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -10,7 +11,7 @@ class NullCategorySpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Category');
+        $this->shouldHaveType(Category::class);
     }
 
     function it_should_have_an_empty_category_name()

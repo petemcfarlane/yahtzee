@@ -2,8 +2,6 @@
 
 namespace Categories;
 
-
-use Category;
 use DiceRoll;
 
 abstract class UpperSection implements Category

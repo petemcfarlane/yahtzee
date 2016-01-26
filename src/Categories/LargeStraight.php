@@ -4,7 +4,7 @@ namespace Categories;
 
 use DiceRoll;
 
-class LargeStraight implements \Category
+class LargeStraight implements Category
 {
     public function evaluate(DiceRoll $diceThrow)
     {
