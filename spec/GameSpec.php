@@ -15,6 +15,6 @@ class GameSpec extends ObjectBehavior
 
     function it_should_be_able_to_play_a_round()
     {
-        $this->play();
+        $this->playRound();
     }
 }

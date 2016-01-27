@@ -23,7 +23,7 @@ class Game
         return $this->scoreboard;
     }
 
-    public function play()
+    public function playRound()
     {
         $this->scoreboard()->play(new Round($this->categoryContainer));
     }
